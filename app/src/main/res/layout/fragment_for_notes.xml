@@ -12,5 +12,6 @@
         android:textSize="16sp"
         android:textStyle="bold|italic"
         android:textAlignment="center"
-        tools:text="Пример текста"/>
+        tools:text="Пример текста"
+        android:text="пробуем отоброзить"/>
 </ScrollView>

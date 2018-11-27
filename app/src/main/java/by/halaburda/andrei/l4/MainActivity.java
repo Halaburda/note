@@ -1,6 +1,7 @@
 package by.halaburda.andrei.l4;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -19,13 +20,16 @@ public class MainActivity extends AppCompatActivity {
     Button btAllList;
     String current = new String();
     String executeo = new String();*/
-
+    FragmentManager fragmentManager;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tabs);
+
+        fragmentManager = getSupportFragmentManager();
+
 
         addNotes();
 
@@ -36,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(v.getContext(),"Click Current",Toast.LENGTH_LONG).show();
+
+                fragmentManager
+                        .beginTransaction()
+                        .replace(R.id.flContainer, new NotesFragment(),null)
+                        .commit();
             }
         });
         btnExecutetNotes.setOnClickListener(new View.OnClickListener() {
@@ -43,6 +52,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(v.getContext(),"Click Executet",Toast.LENGTH_LONG).show();
                 Log.i("MY_TAG","Click Executet log");
+
+                fragmentManager
+                        .beginTransaction()
+                        .replace(R.id.flContainer, new NotesFragment(),null)
+                        .commit();
             }
         });
 
