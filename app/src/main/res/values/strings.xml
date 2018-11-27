@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">L4</string>
+    <string name="texttest">Этот текст отобразится в проекте</string>
+    <string name="btCurrent">Не выполнены</string>
+    <string name="btExecuteo">Выполнены</string>
+    <string name="btAllList">Весь список</string>
+    <string name="textOgl1">Весь списко</string>
+    <string name="textOgl2">Выполнено</string>
+    <string name="textOgl3">Не выполнено</string>
+    <string name="current">Текущее</string>
+    <string name="executet">Выполненое</string>
+</resources>
