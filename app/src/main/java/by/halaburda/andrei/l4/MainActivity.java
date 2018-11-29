@@ -12,14 +12,14 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-/*    TextView tvNotes;
-    TextView textOglavlenie;
-    String strNote = new String();
-    Button btStCurrent;
-    Button btStExecuteo;
-    Button btAllList;
-    String current = new String();
-    String executeo = new String();*/
+    /*    TextView tvNotes;
+        TextView textOglavlenie;
+        String strNote = new String();
+        Button btStCurrent;
+        Button btStExecuteo;
+        Button btAllList;
+        String current = new String();
+        String executeo = new String();*/
     FragmentManager fragmentManager;
 
 
@@ -36,26 +36,29 @@ public class MainActivity extends AppCompatActivity {
         Button btnExecutetNotes = findViewById(R.id.btnCurrentNotes);
         Button btnCurrentNotes = findViewById(R.id.btnExecutetNotes);
 
+
         btnCurrentNotes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(),"Click Current",Toast.LENGTH_LONG).show();
-
+                Toast.makeText(v.getContext(), "Click Current", Toast.LENGTH_LONG).show();
+                NotesFragment fragment = new NotesFragment();
+                fragment.setStatusType(Constants.STATUS_CURRENT);
                 fragmentManager
                         .beginTransaction()
-                        .replace(R.id.flContainer, new NotesFragment(),null)
+                        .replace(R.id.flContainer, fragment, null)
                         .commit();
             }
         });
         btnExecutetNotes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(),"Click Executet",Toast.LENGTH_LONG).show();
-                Log.i("MY_TAG","Click Executet log");
-
+                Toast.makeText(v.getContext(), "Click Executet", Toast.LENGTH_LONG).show();
+                Log.i("MY_TAG", "Click Executet log");
+                NotesFragment fragment = new NotesFragment();
+                fragment.setStatusType(Constants.STATUS_EXECUTEO);
                 fragmentManager
                         .beginTransaction()
-                        .replace(R.id.flContainer, new NotesFragment(),null)
+                        .replace(R.id.flContainer, fragment, null)
                         .commit();
             }
         });
@@ -171,7 +174,8 @@ public class MainActivity extends AppCompatActivity {
         */
 
     }
-    void addNotes(){
+
+    void addNotes() {
         Note note1 = new Note("Title", "Description", Constants.STATUS_CURRENT);
         Note note2 = new Note("запись1:", "описание1", Constants.STATUS_EXECUTEO);
         Note note3 = new Note("запись2:", "описание2", Constants.STATUS_CURRENT);
@@ -197,3 +201,8 @@ public class MainActivity extends AppCompatActivity {
         notes.add(note10);
     }
 }
+//    Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+//
+//    startActivity(intent);
+//-----------------
+//    finish();
