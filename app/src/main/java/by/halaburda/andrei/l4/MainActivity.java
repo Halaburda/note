@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
         Note note10 = new Note("запись9:", "описание9", Constants.STATUS_CURRENT);
 
 //        String str = note1.getTitle() + " "+ note1.getDescription();
-        final ArrayList<Note> notes = ListNote.getInstance().getNotes();
+        ArrayList<Note> notes = ListNote.getInstance().getNotes();
         notes.add(note1);
         notes.add(note2);
         notes.add(note3);
