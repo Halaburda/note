@@ -31,6 +31,7 @@ public class NotesFragment extends Fragment {
         loadNotes();
 
         initRCV(v);
+        initNotesAdapter();
 
 //        switch (statusType) {
 //            case Constants.STATUS_CURRENT:
@@ -45,6 +46,11 @@ public class NotesFragment extends Fragment {
 
 
         return v;
+    }
+
+    private void initNotesAdapter() {
+        NotesAdapter adapter = new NotesAdapter(notes);
+        rvNotes.setAdapter(adapter);
     }
 
     private void initRCV(View v) {
