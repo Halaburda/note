@@ -9,4 +9,7 @@
     <string name="textOgl3">Не выполнено</string>
     <string name="current">Текущее</string>
     <string name="executet">Выполненое</string>
+    <string name="add_note_title">Заполнение заметок</string>
+    <string name="add_dialog_title">Заголовок</string>
+    <string name="add_dialog_description">Описание</string>
 </resources>

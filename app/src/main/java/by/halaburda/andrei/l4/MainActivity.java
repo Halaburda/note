@@ -1,5 +1,6 @@
 package by.halaburda.andrei.l4;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
         String current = new String();
         String executeo = new String();*/
     FragmentManager fragmentManager;
-
+    Button btnSettings;
+    Button btnPlus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
 
         Button btnExecutetNotes = findViewById(R.id.btnCurrentNotes);
         Button btnCurrentNotes = findViewById(R.id.btnExecutetNotes);
+        btnSettings = findViewById(R.id.btnSettings);
+        btnPlus = findViewById(R.id.btnPlus);
+
 
 
         btnCurrentNotes.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +65,21 @@ public class MainActivity extends AppCompatActivity {
                         .beginTransaction()
                         .replace(R.id.flContainer, fragment, null)
                         .commit();
+            }
+        });
+
+        btnSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        btnPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddNoteDialog dialog = new AddNoteDialog(MainActivity.this);
+                dialog.showDialog();
             }
         });
 
