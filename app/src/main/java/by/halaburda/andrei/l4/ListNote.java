@@ -2,6 +2,7 @@ package by.halaburda.andrei.l4;
 
 import java.util.ArrayList;
 
+@Deprecated
 public class ListNote {
     ArrayList<Note> notes = new ArrayList<>(); // создали список
     private static ListNote instance;

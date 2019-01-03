@@ -1,9 +1,17 @@
 package by.halaburda.andrei.l4;
 
-public class Note {
+import java.util.UUID;
+
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
+public class Note extends RealmObject {
     String title; // загаловок
     String description; // описание
     int status;
+
+    @PrimaryKey
+    String id;
 
 
     public int getStatus() {
@@ -22,6 +30,7 @@ public class Note {
         this.title = title;
         this.description = description;
         this.status = status;
+        this.id = String.valueOf(UUID.randomUUID());
     }
 
     public String getTitle() {

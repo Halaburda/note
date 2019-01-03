@@ -11,13 +11,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import io.realm.Realm;
 
 
 public class NotesFragment extends Fragment {
 
     private int statusType = Constants.STATUS_DEFAULT;
 
-    ArrayList<Note> notes;
+    List<Note> notes;
     RecyclerView rvNotes;
 
 //    private TextView tvNotes;
@@ -28,16 +31,15 @@ public class NotesFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_for_notes, container, false);
 
-        loadNotes();
-
         initRCV(v);
-        initNotesAdapter();
+
+        update();
 
 //        switch (statusType) {
 //            case Constants.STATUS_CURRENT:
 //                loadCurrentNotes();
 //                break;
-//            case Constants.STATUS_EXECUTEO:
+//            case Constants.STATUS_EXECUTED:
 //                loadExecutedNotes();
 //                break;
 //            default:
@@ -46,6 +48,11 @@ public class NotesFragment extends Fragment {
 
 
         return v;
+    }
+
+    public void update() {
+        loadNotes();
+        initNotesAdapter();
     }
 
     private void initNotesAdapter() {
@@ -64,7 +71,8 @@ public class NotesFragment extends Fragment {
 
     private void loadNotes() {
 
-        notes = ListNote.getInstance().getNotes(statusType);
+        notes = Realm.getDefaultInstance().where(Note.class).equalTo("status",statusType).findAll();
+//        notes = ListNote.getInstance().getNotes(statusType);
 
     }
 

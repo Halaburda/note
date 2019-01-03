@@ -7,13 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class NotesAdapter extends RecyclerView.Adapter<NoteViewHolder> {
 
 
-    private ArrayList<Note> notes;
+    private List<Note> notes;
 
-    public NotesAdapter(ArrayList<Note>notes){
+    public NotesAdapter(List<Note> notes){
         this.notes = notes;
     }
 
